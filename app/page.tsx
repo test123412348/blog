@@ -58,7 +58,7 @@ export default function Home() {
             </motion.div>
           ))}
 
-          {postsQuery.isFetching && (
+          {postsQuery.isLoading && (
             <div className="space-y-4">
               {[...Array(3)].map((_, i) => (
                 <Card key={i} className="animate-pulse">
