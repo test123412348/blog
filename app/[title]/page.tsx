@@ -1,8 +1,15 @@
 import React from "react";
 import { Post } from "./_components/Post";
 
-const PostPage = async ({ params }: { params: { title: string } }) => {
-  const { title } = await Promise.resolve(params);
+interface PageProps {
+  params: Promise<{
+    title: string;
+  }>;
+}
+
+const PostPage = async (props: PageProps) => {
+  const params = await props.params;
+  const { title } = params;
 
   return <Post title={title} />;
 };

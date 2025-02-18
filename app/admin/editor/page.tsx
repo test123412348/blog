@@ -3,9 +3,18 @@
 import Editor from "@/components/editor/editor";
 import { useMutation } from "@tanstack/react-query";
 import { redirect, useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { createPost } from "../_actions/post";
 import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
+
+const Page = () => {
+  return (
+    <Suspense fallback={<Loader2 className="animate-spin mx-auto" />}>
+      <EditorPage />
+    </Suspense>
+  );
+};
 
 const EditorPage = () => {
   const searchParams = useSearchParams();
@@ -57,4 +66,4 @@ const EditorPage = () => {
   );
 };
 
-export default EditorPage;
+export default Page;
