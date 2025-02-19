@@ -4,6 +4,8 @@ import "./globals.css";
 import QueryProvider from "@/contexts/QueryProvider";
 import { Toaster } from "sonner";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <QueryProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased dark w-screen h-screen`}
         >
@@ -36,6 +38,8 @@ export default function RootLayout({
           <ReactQueryDevtools initialIsOpen={false} />
         </body>
       </html>
+      <Analytics />
+      <SpeedInsights />
     </QueryProvider>
   );
 }
