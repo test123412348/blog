@@ -19,5 +19,8 @@ async function getPosts() {
       title: true,
       description: true,
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
 }
