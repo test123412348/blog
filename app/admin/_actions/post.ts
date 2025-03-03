@@ -13,13 +13,13 @@ export const createPost = async (
   try {
     let isValidPassword = false;
 
-    if(process.env.OTP_SECRET){
+    if (process.env.OTP_SECRET) {
       isValidPassword = authenticator.verify({
         token: auth,
-        secret: process.env.OTP_SECRET ?? "",
+        secret: process.env.OTP_SECRET,
       });
-    }else {
-      throw new Error("Error")
+    } else {
+      throw new Error("Error");
     }
 
     if (!isValidPassword) return { error: "Invalid password" };
