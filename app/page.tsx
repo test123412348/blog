@@ -10,7 +10,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react"; 
 
 export default function Home() {
   const postsQuery = useQuery<GetPostsResponseType>({
